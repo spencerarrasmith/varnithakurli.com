@@ -35,7 +35,7 @@ jobs:
       
       - name: Build and push
         run: |
-          IMAGE=ghcr.io/spencerarrasmith/spencerarrasmith.com
+          IMAGE=ghcr.io/varnithakurli/varnithakurli.com
           VERSION=${{ steps.ver.outputs.version }}
           docker build . \
             --file Dockerfile \
