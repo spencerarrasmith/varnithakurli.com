@@ -27,7 +27,7 @@ jobs:
           fi
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -35,7 +35,7 @@ jobs:
       
       - name: Build and push
         run: |
-          IMAGE=ghcr.io/varnithakurli/varnithakurli.com
+          IMAGE=ghcr.io/spencerarrasmith/varnithakurli.com
           VERSION=${{ steps.ver.outputs.version }}
           docker build . \
             --file Dockerfile \
