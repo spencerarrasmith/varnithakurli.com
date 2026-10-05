@@ -18,7 +18,7 @@
 
   --measure:46rem;
   --wide:70rem;
-  --hero-h:min(68vh,620px);
+  --hero-h:clamp(400px,64vh,600px);
   color-scheme:light;
 }
 
@@ -198,3 +198,47 @@ dialog#photo-dialog::backdrop{background:rgba(40,25,18,.75)}
 @media (max-width:600px){.intro{grid-template-columns:1fr}.portrait{width:180px}}
 /* Projects tab: filters sit at the top of the sheet */
 section[data-view="projects"] .filters{margin-top:0}
+
+/* ===== v17: faded hero, readable tabs, aligned title, bolder headings ===== */
+/* Header: nav only, right-aligned, dark ink so it reads over the faded photo */
+.mast{justify-content:flex-end}
+nav a{color:var(--ink-soft)}
+nav a:hover,nav a[aria-current="page"]{color:var(--ink)}
+nav a[aria-current="page"]{border-color:var(--clay)}
+header::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,252,248,.85),rgba(255,252,248,0));pointer-events:none;transition:opacity .25s}
+header.solid::before{opacity:0}
+
+/* Hero photo is washed toward the paper colour; text sits in ink on top */
+.hero{background:var(--sand)}
+.hero img{opacity:.55;filter:saturate(.85)}
+.hero::after{background:linear-gradient(180deg,rgba(255,252,248,.7) 0%,rgba(255,252,248,.15) 28%,rgba(255,252,248,.1) 55%,rgba(255,252,248,.75) 100%)}
+.hero-text{color:var(--ink)}
+.hero-text .wide{display:flex;flex-direction:column;align-items:flex-start}
+.hero-text h1{font-weight:700;margin:0;letter-spacing:-.01em;line-height:1.05}
+.hero-text p{margin:10px 0 0;padding:0;font-weight:600;color:var(--ink);letter-spacing:.05em}
+.hero-note{color:var(--ink-soft)}
+
+/* Bolder headings */
+.tile h3,dialog#project-dialog .work h3,.work h3{font-weight:600}
+.bio strong,.gallery-intro strong{font-weight:700;color:var(--ink)}
+.contact dt{font-weight:600}
+
+/* Kurli: two columns so portrait and landscape photos balance */
+.gallery.kurli{columns:2 300px}
+.frame.filled{aspect-ratio:auto}
+.frame.filled img{position:static;height:auto}
+.shot figcaption{font-style:italic}
+header.solid{background:var(--paper);backdrop-filter:none}
+/* Paintings: three columns of natural-shape images on a soft mat */
+.gallery.art{columns:3 220px}
+.gallery.art .frame.filled{background:var(--sand);padding:10px;border-radius:3px}
+.shot figcaption strong{font-style:normal;font-weight:600;color:var(--ink)}
+.shot figcaption a{text-decoration:none}
+.shot figcaption a:hover strong{color:var(--clay)}
+/* Tagline starts under the middle (vertex) of the V in "Varnitha":
+   the V's vertex sits 0.36em from the start of the name. */
+.hero-text{--title-size:clamp(36px,6vw,64px)}
+.hero-text h1{font-size:var(--title-size);margin-left:0}
+.hero-text p{padding-left:var(--sub-indent,calc(var(--title-size) * .36 - 1.5px))}
+/* gentler hover zoom so figure edges never get clipped */
+.tile:hover img{transform:scale(1.015)}

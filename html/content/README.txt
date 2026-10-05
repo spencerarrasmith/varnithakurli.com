@@ -15,11 +15,11 @@ urbanization.jpg            Urbanization
 fragile-conflict.jpg        Fragile and Conflict-Affected Areas
 
 Art tab, photographs from Kurli, in content/kurli/:
-kurli-01.jpg ... kurli-09.jpg     any shape; shown cropped to 4:3, full image when clicked
+kurli-01.jpg ... kurli-04.jpg     included; shown at their own shape, full image when clicked
+                                  to add more, copy a <figure class="shot"> block in index.html
 
 Art tab, paintings, in content/art/:
-art-01.jpg ... art-06.jpg         art-02 and art-05 are shown portrait (3:4), the rest 4:3;
-                                  full image when clicked
+art-01.jpg ... art-06.jpg         included; shown at their own shape. Larger scans (1200px+) will look sharper.
 
 Captions are in index.html: search for "Caption:" and "Title, medium, year".
 
