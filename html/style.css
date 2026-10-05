@@ -1,0 +1,200 @@
+/* Layout: a fixed hero photograph at the top; the page itself is a light "sheet" that slides
+   up over the photo as you scroll. Home leads with a short bio, then Better Planet Lab–style
+   project tiles. Single light theme: warm ivory ground, clay and apricot accents. */
+:root{
+  --paper:#fffcf8;        /* page sheet */
+  --sand:#f8efe5;         /* soft panels, tile placeholders */
+  --blush:#f3e1d6;        /* highlights */
+  --ink:#3b302a;          /* text */
+  --ink-soft:#7a6b61;     /* secondary text */
+  --rule:#ecdfd2;         /* hairlines */
+  --clay:#a9573b;         /* links, active states */
+  --apricot:#e3a07a;      /* small marks */
+  --shade:rgba(59,38,26,.55);
+
+  --font-display:"EB Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --font-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
+  --font-label:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+
+  --measure:46rem;
+  --wide:70rem;
+  --hero-h:min(68vh,620px);
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased}
+p{margin:0}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.2;text-wrap:balance;margin:0}
+a{color:var(--clay);text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(169,87,59,.35)}
+a:hover{text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:2px}
+img{max-width:100%;display:block}
+.col{max-width:var(--measure);margin-inline:auto;padding-inline:clamp(18px,5vw,32px)}
+.wide{max-width:var(--wide);margin-inline:auto;padding-inline:clamp(18px,4vw,36px)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* ---------- Header: transparent over the photo, paper once the sheet arrives ---------- */
+header{position:fixed;left:0;right:0;top:0;z-index:30;padding-top:env(safe-area-inset-top,0px);transition:background .25s,box-shadow .25s}
+.mast{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding-block:18px}
+.name{font-family:var(--font-display);font-size:24px;font-weight:500;color:#fffaf4;text-decoration:none;letter-spacing:.01em;transition:color .25s}
+nav ul{list-style:none;display:flex;gap:clamp(16px,3vw,28px);margin:0;padding:0}
+nav a{font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,250,244,.85);text-decoration:none;padding-bottom:3px;border-bottom:1.5px solid transparent;transition:color .25s}
+nav a:hover{color:#fff}
+nav a[aria-current="page"]{color:#fff;border-color:var(--apricot)}
+header.solid{background:rgba(255,252,248,.96);box-shadow:0 1px 0 var(--rule);backdrop-filter:blur(6px)}
+header.solid .name{color:var(--ink)}
+header.solid nav a{color:var(--ink-soft)}
+header.solid nav a:hover,header.solid nav a[aria-current="page"]{color:var(--ink)}
+
+/* ---------- Hero: fixed behind, revealed above the sheet ---------- */
+.hero{position:fixed;inset:0 0 auto 0;height:var(--hero-h);z-index:0;overflow:hidden;
+  background:linear-gradient(160deg,#e9b894 0%,#d98f6f 38%,#b9785f 70%,#8f6250 100%)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,25,18,.35) 0%,rgba(40,25,18,.05) 35%,rgba(40,25,18,.5) 100%)}
+.hero-text{position:absolute;left:0;right:0;bottom:clamp(40px,7vh,72px);z-index:1;color:#fffaf4}
+.hero-text h1{font-size:clamp(36px,6vw,64px);font-weight:500;letter-spacing:-.005em}
+.hero-text p{margin-top:8px;font-family:var(--font-label);font-size:clamp(14px,1.6vw,17px);letter-spacing:.04em;color:rgba(255,250,244,.9)}
+.hero-note{position:absolute;right:16px;bottom:12px;z-index:1;font-family:var(--font-label);font-size:11px;letter-spacing:.06em;color:rgba(255,250,244,.75)}
+.spacer{height:var(--hero-h)}
+
+/* ---------- The sheet that scrolls over the hero ---------- */
+.sheet{position:relative;z-index:1;background:var(--paper);border-radius:22px 22px 0 0;box-shadow:0 -18px 40px rgba(59,38,26,.12);padding-block:clamp(40px,6vw,64px) 0}
+
+/* Home: intro */
+.intro{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(22px,4vw,40px);align-items:start}
+@media (max-width:600px){.intro{grid-template-columns:1fr}}
+.portrait{position:relative;width:150px;max-width:100%;aspect-ratio:4/5;background:var(--sand);border-radius:4px;overflow:hidden;display:grid;place-items:center;font-family:var(--font-display);font-style:italic;font-size:40px;color:var(--ink-soft)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.role{font-family:var(--font-label);font-size:14px;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:14px;line-height:1.5}
+.bio p+p{margin-top:16px}
+
+.sec-label{font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin:clamp(48px,6vw,64px) 0 22px;display:flex;align-items:center;gap:14px}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* Home: project tiles */
+.filters{display:flex;flex-wrap:wrap;gap:6px 24px;margin:0 0 26px;padding:0;list-style:none}
+.filters button{background:none;border:0;padding:3px 0;font-family:var(--font-label);font-size:14px;font-weight:600;letter-spacing:.06em;color:var(--ink-soft);cursor:pointer;border-bottom:1.5px solid transparent}
+.filters button:hover{color:var(--ink)}
+.filters button[aria-pressed="true"]{color:var(--ink);border-color:var(--apricot)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.6vw,34px)}
+@media (max-width:880px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.tiles{grid-template-columns:1fr}}
+.tile{display:block;text-decoration:none;color:inherit}
+.tile .img{position:relative;aspect-ratio:4/3;max-width:100%;overflow:hidden;border-radius:4px;background:var(--tint,var(--sand))}
+.tile .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.tile .img img ~ .ph-file{display:none}
+.tile .ph-file{position:absolute;left:12px;bottom:10px;font-family:var(--font-label);font-size:11px;letter-spacing:.04em;color:var(--ink-soft)}
+.tile .over{position:absolute;inset:0;background:var(--shade);display:flex;align-items:center;justify-content:center;color:#fffaf4;font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:0;transition:opacity .25s}
+.tile:hover .over,.tile:focus-visible .over{opacity:1}
+.tile:hover img{transform:scale(1.04)}
+.tile h3{font-size:22px;margin-top:14px;color:var(--ink)}
+.tile p{font-size:16px;color:var(--ink-soft);margin-top:2px;line-height:1.5}
+.tile .kind{display:inline-block;margin-top:8px;font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--clay)}
+
+/* Home: contact */
+.contact{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:6px 20px;font-size:17px;margin:0}
+@media (max-width:560px){.contact{grid-template-columns:1fr;gap:0}.contact dd{margin-bottom:10px}}
+.contact dt{font-family:var(--font-label);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+.contact dd{margin:0;min-width:0}
+.copy{font-family:var(--font-label);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--rule);color:var(--ink-soft);padding:2px 9px;margin-left:8px;border-radius:2px;cursor:pointer;vertical-align:2px}
+.copy:hover{color:var(--ink);border-color:var(--ink-soft)}
+
+/* ---------- Projects page ---------- */
+.page-note{color:var(--ink-soft);font-style:italic}
+.group{margin-top:clamp(28px,4vw,40px)}
+.group > h2{font-family:var(--font-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.work{padding-block:24px;border-bottom:1px solid var(--rule);scroll-margin-top:90px}
+.work.flash{animation:flash 1.6s ease}
+@keyframes flash{0%,40%{background:var(--blush)}100%{background:transparent}}
+.work h3{font-size:22px;line-height:1.3}
+.work .by{margin-top:4px;font-size:16px;color:var(--ink-soft)}
+.work .venue{font-style:italic}
+.work .gist{margin-top:10px;font-size:17px}
+.work details{margin-top:8px}
+.work summary{list-style:none;cursor:pointer;display:inline-block;font-family:var(--font-label);font-size:14px;font-weight:600;letter-spacing:.03em;color:var(--clay)}
+.work summary::-webkit-details-marker{display:none}
+.work summary::before{content:"» ";color:var(--apricot)}
+.work details[open] summary::before{content:"« "}
+.work .more{margin-top:10px;padding-left:16px;border-left:2px solid var(--blush);font-size:17px}
+.work .more p+p{margin-top:10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-family:var(--font-label);font-size:13px;color:var(--ink-soft)}
+.meta b{font-weight:600;color:var(--ink)}
+.status{display:inline-block;font-family:var(--font-label);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:6px}
+
+/* ---------- Resume page ---------- */
+.updated{font-family:var(--font-label);font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+.resume .sec-label:first-of-type{margin-top:28px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 20px;padding-block:14px}
+.item + .item{border-top:1px dotted var(--rule)}
+.item h3{font-size:20px;line-height:1.35}
+.item .where{grid-column:1;color:var(--ink-soft);font-size:16px}
+.item .when{grid-column:2;grid-row:1;font-family:var(--font-label);font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:4px}
+.item ul{grid-column:1/-1;margin:6px 0 0;padding-left:20px;font-size:17px}
+.item li{margin-top:3px}
+.item li::marker{color:var(--apricot)}
+@media (max-width:520px){.item{grid-template-columns:1fr}.item .when{grid-column:1;grid-row:auto;padding-top:0}}
+.skills{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:10px 20px;font-size:17px;margin:0}
+@media (max-width:560px){.skills{grid-template-columns:1fr;gap:0}.skills dd{margin-bottom:12px}}
+.skills dt{font-family:var(--font-label);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+.skills dd{margin:0}
+
+.ph{background:var(--blush);font-style:normal;padding:0 4px;border-radius:2px}
+
+/* ---------- Footer ---------- */
+footer{margin-top:clamp(56px,8vw,88px);border-top:1px solid var(--rule);background:var(--sand)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;padding-block:22px 36px;font-family:var(--font-label);font-size:13px;color:var(--ink-soft);letter-spacing:.03em}
+
+/* ---------- Project dialog (opened from a tile) ---------- */
+dialog#project-dialog{width:min(44rem,calc(100vw - 32px));max-height:min(85vh,52rem);padding:clamp(24px,4vw,40px);border:0;border-radius:10px;background:var(--paper);color:var(--ink);box-shadow:0 24px 60px rgba(59,38,26,.25);overflow:auto}
+dialog#project-dialog::backdrop{background:rgba(59,38,26,.45)}
+dialog#project-dialog .work{border-bottom:0;padding-block:0}
+dialog#project-dialog .work h3{font-size:clamp(24px,3vw,30px);padding-right:36px}
+.close{position:absolute;top:14px;right:16px;width:36px;height:36px;border:1px solid var(--rule);border-radius:50%;background:var(--paper);color:var(--ink-soft);font-size:22px;line-height:1;cursor:pointer}
+.close:hover{color:var(--ink);border-color:var(--ink-soft)}
+
+/* ---------- Kurli and Art galleries ---------- */
+.gallery-intro{font-size:19px;line-height:1.7;margin-bottom:8px}
+.saatchi{margin:18px 0 6px}
+.pill{display:inline-block;font-family:var(--font-label);font-size:14px;font-weight:600;letter-spacing:.04em;text-decoration:none;color:var(--paper);background:var(--clay);padding:10px 20px;border-radius:999px}
+.pill:hover{background:var(--ink)}
+.gallery{columns:3 260px;column-gap:clamp(16px,2.4vw,28px);margin-top:clamp(28px,4vw,40px)}
+.shot{break-inside:avoid;margin:0 0 clamp(16px,2.4vw,28px)}
+.frame{position:relative;display:block;width:100%;padding:0;border:0;border-radius:4px;overflow:hidden;background:var(--sand);aspect-ratio:4/3;cursor:zoom-in}
+.shot.tall .frame{aspect-ratio:3/4}
+.gallery.art .frame{background:var(--blush)}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.frame:hover img{transform:scale(1.03)}
+.frame img ~ .ph-file{display:none}
+.frame .ph-file{position:absolute;left:12px;bottom:10px;font-family:var(--font-label);font-size:11px;color:var(--ink-soft)}
+.shot figcaption{margin-top:8px;font-size:15px;color:var(--ink-soft);line-height:1.5}
+
+dialog#photo-dialog{width:min(64rem,calc(100vw - 32px));max-height:92vh;padding:clamp(14px,2vw,22px);border:0;border-radius:8px;background:var(--paper);color:var(--ink);overflow:auto}
+dialog#photo-dialog::backdrop{background:rgba(40,25,18,.75)}
+#photo-full{width:100%;max-height:78vh;object-fit:contain}
+#photo-cap{margin-top:10px;font-size:15px;color:var(--ink-soft);padding-right:40px}
+
+/* ---------- Art tab sections ---------- */
+.sec-label.first{margin-top:0}
+
+/* ---------- Resume (PDF) ---------- */
+.resume-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px 20px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.resume-bar p{color:var(--ink-soft);font-style:italic}
+.resume-actions{display:flex;flex-wrap:wrap;gap:10px}
+.pill.ghost{background:transparent;color:var(--clay);box-shadow:inset 0 0 0 1.5px var(--clay)}
+.pill.ghost:hover{background:var(--clay);color:var(--paper)}
+.resume-pages{display:grid;gap:22px;margin-top:28px}
+.resume-pages img{width:100%;border:1px solid var(--rule);border-radius:3px;box-shadow:0 8px 24px rgba(59,38,26,.08);background:#fff}
+
+/* Portrait placeholder: shows the expected filename until portrait.jpg exists */
+.portrait .ph-file{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--font-label);font-style:normal;font-size:11px;letter-spacing:.02em;color:var(--ink-soft)}
+.portrait img ~ .ph-file{display:none}
+
+/* Portrait sized for a near-square headshot */
+.intro{grid-template-columns:200px minmax(0,1fr)}
+.portrait{width:200px;aspect-ratio:1/1;border-radius:6px}
+@media (max-width:600px){.intro{grid-template-columns:1fr}.portrait{width:180px}}
+/* Projects tab: filters sit at the top of the sheet */
+section[data-view="projects"] .filters{margin-top:0}

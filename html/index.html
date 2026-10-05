@@ -1,1 +1,386 @@
-Varni's Website
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Varnitha Kurli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="top">
+  <div class="wide mast">
+    <a class="name" href="#home" data-go="home">Varnitha Kurli</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#home" data-go="home">Home</a></li>
+        <li><a href="#projects" data-go="projects">Projects</a></li>
+        <li><a href="#art" data-go="art">Art</a></li>
+        <li><a href="#resume" data-go="resume">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Fixed hero photo; the .sheet below scrolls up over it -->
+<div class="hero" aria-hidden="true">
+  <img src="content/hero.jpg" alt="" onerror="this.remove();document.getElementById('hero-note').hidden=false">
+  <div class="hero-text">
+    <div class="wide">
+      <h1 id="hero-title">Varnitha Kurli</h1>
+      <p id="hero-sub">Data For a Fairer, More Livable Planet</p>
+    </div>
+  </div>
+  <span class="hero-note" id="hero-note" hidden>content/hero.jpg</span>
+</div>
+<div class="spacer"></div>
+
+<div class="sheet">
+<main>
+
+  <!-- HOME -->
+  <section data-view="home">
+    <div class="col">
+      <div class="intro">
+        <figure class="portrait" style="margin:0">VK<img src="content/portrait.jpg" alt="Portrait of Varnitha Kurli" onerror="this.remove()"><span class="ph-file">content/portrait.jpg</span></figure>
+        <div class="bio">
+          <p>I have a background in economics and mathematics, with graduate training in logic and research methodology, and a decade of applied work on forests, water, cities and disasters. One question connects it all: what happens to people when the systems around them are shocked, and how can evidence help them recover? My dissertation brings that question to population change, tracing how climate hazards and population policies shape fertility, migration and mortality across India, Bangladesh and the world. My goal is to keep producing evidence that is rigorous enough for science and practical enough for the people making decisions on the ground.</p>
+          <p>I am affiliated with the <a href="https://betterplanetlab.com/" target="_blank" rel="noopener">Better Planet Laboratory</a> and the <a href="https://carricolab.weebly.com/" target="_blank" rel="noopener">Environment and Behavior Lab</a> at CU Boulder.</p>
+          <p>Earlier, I was a Water Data Specialist at the <a href="https://www.worldbank.org/" target="_blank" rel="noopener">World Bank</a>, where I continue to provide analytical and advisory support as a Data Scientist Consultant. I received an M.Sc. in Logic, Computation and Methodology from Carnegie Mellon University and a B.A. with honors in Economics and Mathematics from the University of Massachusetts Amherst.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h2 class="sec-label">Contact</h2>
+      <dl class="contact">
+        <dt>Email</dt><dd><span id="mail">varnitha.kurli@colorado.edu</span><button type="button" class="copy" id="copy">Copy</button></dd>
+        <dt>Links</dt><dd><a href="https://scholar.google.com/citations?user=0SuEkq8AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://www.linkedin.com/in/varnitha-kurli/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/VarnithaKurliReddy" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.saatchiart.com/en-se/varnithakurlireddy" target="_blank" rel="noopener">Saatchi Art</a> · <a href="https://betterplanetlab.com/" target="_blank" rel="noopener">Better Planet Lab</a></dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section data-view="projects" hidden>
+    <div class="wide">
+      <ul class="filters" role="list">
+        <li><button type="button" data-filter="all" aria-pressed="true">All</button></li>
+        <li><button type="button" data-filter="research" aria-pressed="false">Research</button></li>
+        <li><button type="button" data-filter="tools" aria-pressed="false">Tools</button></li>
+      </ul>
+      <div class="tiles">
+        <a class="tile" href="#projects" data-open="p-displacement" data-cat="research tools" style="--tint:#f2d6d3">
+          <div class="img"><img src="content/internal-displacement.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/internal-displacement.jpg</span><span class="over">View project</span></div>
+          <h3>Mapping Climate-Driven Internal Displacement</h3><p>Who moves when disasters strike</p><span class="kind">Research · Tools</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-twochild" data-cat="research" style="--tint:#f6dcc8">
+          <div class="img"><img src="content/two-child-policies.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/two-child-policies.jpg</span><span class="over">View project</span></div>
+          <h3>Two-Child Policies in India</h3><p>Policy shocks and fertility</p><span class="kind">Research</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-bangladesh" data-cat="research" style="--tint:#f5e3b5">
+          <div class="img"><img src="content/compounding-shocks.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/compounding-shocks.jpg</span><span class="over">View project</span></div>
+          <h3>Compounding Climate Shocks in Bangladesh</h3><p>Drought, floods and child health</p><span class="kind">Research</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-forests" data-cat="research" style="--tint:#e6e4cc">
+          <div class="img"><img src="content/forests.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/forests.jpg</span><span class="over">View project</span></div>
+          <h3>Forests and Sustainable Development</h3><p>Forests, people and development</p><span class="kind">Research</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-groundwater" data-cat="research tools" style="--tint:#f1e4cf">
+          <div class="img"><img src="content/groundwater.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/groundwater.jpg</span><span class="over">View project</span></div>
+          <h3>Ground Water Dynamics</h3><p>Change in groundwater over time</p><span class="kind">Research · Tools</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-women-water" data-cat="tools" style="--tint:#efd2c0">
+          <div class="img"><img src="content/women-in-water.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/women-in-water.jpg</span><span class="over">View project</span></div>
+          <h3>WBG Women in Water</h3><p>Women in World Bank water projects</p><span class="kind">Tools</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-hazards" data-cat="applied" style="--tint:#f3dccb">
+          <div class="img"><img src="content/climate-hazards.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/climate-hazards.jpg</span><span class="over">View project</span></div>
+          <h3>Climate Hazards</h3><p>Exposure to floods, storms, heat and drought</p><span class="kind">Project</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-urban" data-cat="research" style="--tint:#ebe0d4">
+          <div class="img"><img src="content/urbanization.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/urbanization.jpg</span><span class="over">View project</span></div>
+          <h3>Urbanization</h3><p>Cities, growth and climate risk</p><span class="kind">Research</span>
+        </a>
+        <a class="tile" href="#projects" data-open="p-fcv" data-cat="applied" style="--tint:#eed9cf">
+          <div class="img"><img src="content/fragile-conflict.jpg" alt="" onerror="this.remove()"><span class="ph-file">content/fragile-conflict.jpg</span><span class="over">View project</span></div>
+          <h3>Fragile and Conflict-Affected Areas</h3><p>Development where conflict and climate meet</p><span class="kind">Project</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAILS: shown in a dialog when a tile is opened -->
+  <div id="project-store" hidden>
+        <article class="work" id="p-displacement">
+          <span class="status">Work in progress</span>
+          <h3>Mapping climate-driven internal displacement</h3>
+          <p class="by">with Zia Mehrabi · <span class="venue">Abstracts submitted to PAA 2027 and PopClima, Bologna</span></p>
+          <p class="gist">A global map of floods, storms, wildfires and landslides, and the share of exposed people each event displaced or killed.</p>
+          <details>
+            <summary>Abstract</summary>
+            <div class="more">
+              <p>Projections of climate migration rest on thin evidence about how many exposed people actually move. I map the recorded footprint of each displacement event from 2014 to 2023 and estimate the ratio of people displaced to people exposed, separating exposure from displacement itself.</p>
+              <p>Quantile models of the upper tail give expected displacement and mortality rates for the most severe events by hazard type, a baseline that humanitarian planners and funders can use. I also test whether conflict and subnational human development shift these rates.</p>
+            </div>
+          </details>
+          <div class="meta"><span><b>Coverage</b> Global, 2014–2023</span><span><b>Events</b> 3,512</span></div>
+        </article>
+        <article class="work" id="p-twochild">
+          <span class="status">Preprint forthcoming</span>
+          <h3>Two-child policies in India</h3>
+          <p class="by">Varnitha Kurli · <span class="venue">SocArXiv</span>, 2026</p>
+          <p class="gist">Did laws barring parents of more than two children from local office reduce third births, and did they weigh more heavily on poor families or families without sons?</p>
+          <details>
+            <summary>Abstract</summary>
+            <div class="more">
+              <p>Several Indian states adopted two-child norms that penalized households exceeding a two-child limit. Using matched samples from the National Family Health Survey across three adoption waves, I estimate the effect of these policies on progression from a second to a third birth in the short and longer run.</p>
+              <p>Triple-difference estimates show no evidence that the policies operated differently by sibling sex composition or household poverty. Son preference and poverty shaped third births independently of the policy, in adopting and comparison states, before and after. The result points to a different kind of policy failure: an instrument with too little force to engage either mechanism.</p>
+            </div>
+          </details>
+          <div class="meta"><span><b>Data</b> NFHS</span><span><b>Methods</b> Difference-in-differences, matching</span></div>
+        </article>
+        <article class="work" id="p-bangladesh">
+          <span class="status">Work in progress</span>
+          <h3>Compounding climate shocks in Bangladesh</h3>
+          <p class="by">with Amanda Carrico · <span class="venue">Abstracts submitted to PAA 2027 and PopClima, Bologna</span></p>
+          <p class="gist">Does a drought early in life followed by a flood or cyclone harm child growth and survival more than either shock alone, and does the order matter?</p>
+          <details>
+            <summary>Abstract</summary>
+            <div class="more">
+              <p>Children in Bangladesh often face a slow-onset shock such as drought or humid heat followed by a sudden one such as a flood or cyclone. The effects of single hazards are well documented, but sequences are not. I test whether compound exposure between late pregnancy and age five is worse than the sum of its parts, and whether drought followed by flood is more harmful than the reverse.</p>
+              <p>Child records from the 2017–18 and 2022 Bangladesh Demographic and Health Surveys are linked month by month to cyclone tracks, satellite flood maps, drought indices and heat-stress measures. Outcomes are wasting and under-five mortality.</p>
+            </div>
+          </details>
+          <div class="meta"><span><b>Data</b> BDHS 2017–18, 2022</span><span><b>Hazards</b> Drought, flood, cyclone, heat</span></div>
+        </article>
+        <article class="work" id="p-forests">
+          <h3>Forests and Sustainable Development</h3>
+          <p class="gist"><i class="ph">Add a two- or three-sentence summary of this project: the question, where, and what you found or built.</i></p>
+          <div class="meta"><span><b>Links</b> <i class="ph">paper, tool or data link</i></span></div>
+        </article>
+        <article class="work" id="p-groundwater">
+          <h3>Ground Water Dynamics</h3>
+          <p class="gist"><i class="ph">Add a two- or three-sentence summary of this project: the question, where, and what you found or built.</i></p>
+          <div class="meta"><span><b>Links</b> <i class="ph">paper, tool or data link</i></span></div>
+        </article>
+        <article class="work" id="p-women-water">
+          <h3>WBG Women in Water</h3>
+          <p class="gist"><i class="ph">Add a two- or three-sentence summary of this project: the question, where, and what you found or built.</i></p>
+          <div class="meta"><span><b>Links</b> <i class="ph">paper, tool or data link</i></span></div>
+        </article>
+        <article class="work" id="p-hazards">
+          <h3>Climate Hazards</h3>
+          <p class="gist"><i class="ph">Add a two- or three-sentence summary of this project: the question, where, and what you found or built.</i></p>
+          <div class="meta"><span><b>Links</b> <i class="ph">paper, tool or data link</i></span></div>
+        </article>
+        <article class="work" id="p-urban">
+          <h3>Urbanization</h3>
+          <p class="gist"><i class="ph">Add a two- or three-sentence summary of this project: the question, where, and what you found or built.</i></p>
+          <div class="meta"><span><b>Links</b> <i class="ph">paper, tool or data link</i></span></div>
+        </article>
+        <article class="work" id="p-fcv">
+          <h3>Fragile and Conflict-Affected Areas</h3>
+          <p class="gist"><i class="ph">Add a two- or three-sentence summary of this project: the question, where, and what you found or built.</i></p>
+          <div class="meta"><span><b>Links</b> <i class="ph">paper, tool or data link</i></span></div>
+        </article>
+  </div>
+
+  <dialog id="project-dialog" aria-label="Project details">
+    <button type="button" class="close" id="dialog-close" aria-label="Close">×</button>
+    <div id="dialog-body"></div>
+  </dialog>
+
+  <!-- RESUME: the PDF is the source of truth; page images are for reading on screen -->
+  <section data-view="resume" hidden>
+    <div class="col">
+      <div class="resume-bar">
+        <p>My full resume, updated October 2026.</p>
+        <div class="resume-actions">
+          <a class="pill" href="content/Kurli_Resume.pdf" download="Kurli_Resume.pdf">Download PDF</a>
+          <a class="pill ghost" href="content/Kurli_Resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        </div>
+      </div>
+      <div class="resume-pages">
+        <img src="content/resume/Kurli_Resume-1.png" alt="Resume of Varnitha Kurli, page 1" loading="lazy">
+        <img src="content/resume/Kurli_Resume-2.png" alt="Resume of Varnitha Kurli, page 2" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ART: photographs from Kurli, then paintings -->
+  <section data-view="art" hidden>
+    <div class="col">
+      <h2 class="sec-label first">Photographs from Kurli</h2>
+      <p class="gallery-intro">Kurli is my native village. These are photographs from my time there: <i class="ph">add a sentence or two about the village, when you took these, and what they mean to you.</i></p>
+    </div>
+    <div class="wide">
+      <div class="gallery">
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-01.jpg" aria-label="Enlarge image 1"><img src="content/kurli/kurli-01.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-01.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-02.jpg" aria-label="Enlarge image 2"><img src="content/kurli/kurli-02.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-02.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-03.jpg" aria-label="Enlarge image 3"><img src="content/kurli/kurli-03.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-03.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-04.jpg" aria-label="Enlarge image 4"><img src="content/kurli/kurli-04.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-04.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-05.jpg" aria-label="Enlarge image 5"><img src="content/kurli/kurli-05.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-05.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-06.jpg" aria-label="Enlarge image 6"><img src="content/kurli/kurli-06.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-06.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-07.jpg" aria-label="Enlarge image 7"><img src="content/kurli/kurli-07.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-07.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-08.jpg" aria-label="Enlarge image 8"><img src="content/kurli/kurli-08.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-08.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/kurli/kurli-09.jpg" aria-label="Enlarge image 9"><img src="content/kurli/kurli-09.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/kurli/kurli-09.jpg</span></button>
+          <figcaption><i class="ph">Caption: place, people or moment</i></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="col">
+      <h2 class="sec-label">Paintings</h2>
+      <p class="gallery-intro">Alongside research, I paint. <i class="ph">Add a sentence about your medium, themes or what draws you to painting.</i></p>
+      <p class="saatchi"><a class="pill" href="https://www.saatchiart.com/en-se/varnithakurlireddy" target="_blank" rel="noopener">See my work on Saatchi Art →</a></p>
+    </div>
+    <div class="wide">
+      <div class="gallery art">
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/art/art-01.jpg" aria-label="Enlarge image 1"><img src="content/art/art-01.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/art/art-01.jpg</span></button>
+          <figcaption><i class="ph">Title, medium, year</i></figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="frame" data-full="content/art/art-02.jpg" aria-label="Enlarge image 2"><img src="content/art/art-02.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/art/art-02.jpg</span></button>
+          <figcaption><i class="ph">Title, medium, year</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/art/art-03.jpg" aria-label="Enlarge image 3"><img src="content/art/art-03.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/art/art-03.jpg</span></button>
+          <figcaption><i class="ph">Title, medium, year</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/art/art-04.jpg" aria-label="Enlarge image 4"><img src="content/art/art-04.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/art/art-04.jpg</span></button>
+          <figcaption><i class="ph">Title, medium, year</i></figcaption>
+        </figure>
+        <figure class="shot tall">
+          <button type="button" class="frame" data-full="content/art/art-05.jpg" aria-label="Enlarge image 5"><img src="content/art/art-05.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/art/art-05.jpg</span></button>
+          <figcaption><i class="ph">Title, medium, year</i></figcaption>
+        </figure>
+        <figure class="shot">
+          <button type="button" class="frame" data-full="content/art/art-06.jpg" aria-label="Enlarge image 6"><img src="content/art/art-06.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="ph-file">content/art/art-06.jpg</span></button>
+          <figcaption><i class="ph">Title, medium, year</i></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <dialog id="photo-dialog" aria-label="Enlarged image">
+    <button type="button" class="close" id="photo-close" aria-label="Close">×</button>
+    <img id="photo-full" alt="">
+    <p id="photo-cap"></p>
+  </dialog>
+</main>
+
+<footer>
+  <div class="wide foot">
+    <span>© 2026 Varnitha Kurli</span>
+    <span>Boulder, Colorado</span>
+  </div>
+</footer>
+</div>
+
+<script>
+const HERO = {
+  home:["Varnitha Kurli","Data For a Fairer, More Livable Planet"],
+  projects:["Projects","Research and tools"],
+  art:["Art","Photographs from Kurli and paintings"],
+  resume:["Resume","Research, experience and publications"]
+};
+const header=document.getElementById("top");
+const spacer=document.querySelector(".spacer");
+
+function syncHeader(){
+  header.classList.toggle("solid", window.scrollY > spacer.offsetHeight - header.offsetHeight - 8);
+}
+window.addEventListener("scroll",syncHeader,{passive:true});
+window.addEventListener("resize",syncHeader);
+
+function show(view){
+  if(view==="kurli")view="art";
+  if(!HERO[view])view="home";
+  document.querySelectorAll("[data-view]").forEach(s=>s.hidden=s.dataset.view!==view);
+  document.querySelectorAll("nav a").forEach(a=>{
+    if(a.dataset.go===view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+  });
+  document.getElementById("hero-title").textContent=HERO[view][0];
+  document.getElementById("hero-sub").textContent=HERO[view][1];
+  window.scrollTo({top:0,behavior:"auto"});
+  syncHeader();
+}
+document.querySelectorAll("[data-go]").forEach(el=>el.addEventListener("click",e=>{
+  e.preventDefault();
+  try{history.replaceState(null,"","#"+el.dataset.go);}catch(_){}
+  show(el.dataset.go);
+}));
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+// Tiles open the matching project in a dialog
+const dlg=document.getElementById("project-dialog");
+const dlgBody=document.getElementById("dialog-body");
+document.querySelectorAll("[data-open]").forEach(t=>t.addEventListener("click",e=>{
+  e.preventDefault();
+  const entry=document.getElementById(t.dataset.open).cloneNode(true);
+  entry.removeAttribute("id");
+  const d=entry.querySelector("details"); if(d) d.open=true;
+  dlgBody.replaceChildren(entry);
+  dlg.showModal();
+}));
+document.getElementById("dialog-close").addEventListener("click",()=>dlg.close());
+dlg.addEventListener("click",e=>{ if(e.target===dlg) dlg.close(); });
+
+// Gallery lightbox
+const pd=document.getElementById("photo-dialog");
+document.querySelectorAll(".frame").forEach(btn=>btn.addEventListener("click",()=>{
+  if(!btn.querySelector("img")) return;           // image not added yet
+  document.getElementById("photo-full").src=btn.dataset.full;
+  document.getElementById("photo-cap").textContent=btn.closest("figure").querySelector("figcaption").textContent;
+  pd.showModal();
+}));
+document.getElementById("photo-close").addEventListener("click",()=>pd.close());
+pd.addEventListener("click",e=>{ if(e.target===pd) pd.close(); });
+
+// Tile filters
+document.querySelectorAll("[data-filter]").forEach(btn=>btn.addEventListener("click",()=>{
+  const f=btn.dataset.filter;
+  document.querySelectorAll("[data-filter]").forEach(b=>b.setAttribute("aria-pressed",b===btn));
+  document.querySelectorAll(".tile").forEach(t=>t.hidden=!(f==="all"||t.dataset.cat.split(" ").includes(f)));
+}));
+
+document.getElementById("copy").addEventListener("click",async e=>{
+  const el=document.getElementById("mail");
+  try{await navigator.clipboard.writeText(el.textContent);e.target.textContent="Copied";}
+  catch(_){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);e.target.textContent="Selected";}
+  setTimeout(()=>e.target.textContent="Copy",1600);
+});
+
+show(location.hash.slice(1)||"home");
+</script>
+</body>
+</html>
